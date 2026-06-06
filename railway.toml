@@ -3,6 +3,7 @@ builder = "dockerfile"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-healthcheckPath = "/health/ready"
-healthcheckTimeout = 300
+# Liveness seulement — /health/ready renvoie 503 si une variable manque (normal avant config complète)
+healthcheckPath = "/health"
+healthcheckTimeout = 120
 restartPolicyType = "on_failure"

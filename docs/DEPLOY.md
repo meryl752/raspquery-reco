@@ -52,7 +52,7 @@ git push -u origin main
 ### 2. Projet Railway
 
 1. [railway.app](https://railway.app) → **New Project** → **Deploy from GitHub repo** → `raspquery-reco`
-2. Railway détecte le **Dockerfile** (`railway.toml` configure le health check `/health/ready`)
+2. Railway détecte le **Dockerfile** (`railway.toml` → healthcheck `/health`)
 3. **Settings → Networking → Generate Domain** → noter l’URL (`https://xxx.up.railway.app`)
 
 ### 3. Variables (Railway → Variables)
@@ -83,7 +83,9 @@ Railway injecte `PORT` automatiquement — le Dockerfile s’adapte.
 curl https://xxx.up.railway.app/health/ready
 ```
 
-Réponse `"status": "ready"` avec `"checks": {"llm": true, "jina": true, "supabase": true}`.
+Réponse `"status": "ready"` avec les 3 checks à `true`. Si **503 degraded** : variable manquante — utiliser les noms **`SUPABASE_URL`** (pas `NEXT_PUBLIC_*`), etc.
+
+Le healthcheck Railway utilise `/health` (process vivant). `/health/ready` valide les secrets manuellement.
 
 Test reco :
 
@@ -109,6 +111,13 @@ RECO_ENGINE_TIMEOUT_MS=120000
 Redéployer Vercel (ou attendre le redeploy auto). Une reco UI doit renvoyer `meta.engine: "python"`.
 
 **Coût :** Railway facture à l’usage (~5–10 €/mois si le service tourne en continu). Désactiver le service quand tu n’en as pas besoin pour économiser.
+
+### Dépannage — « Healthcheck failure »
+
+1. **Cause fréquente** : healthcheck sur `/health/ready` → **503** tant qu’une clé API manque. Fix : healthcheck sur `/health` (déjà dans `railway.toml` du repo).
+2. Vérifier les **Deploy Logs** (crash uvicorn, permissions).
+3. Noms exacts des variables sur Railway (table ci-dessus).
+4. Après deploy vert : `curl …/health/ready` pour confirmer les secrets.
 
 ## Fly.io
 
