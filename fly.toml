@@ -1,0 +1,32 @@
+# Fly.io — ajuster app/region puis : fly secrets import < .env
+app = "raspquery-reco"
+primary_region = "cdg"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  RECO_HOST = "0.0.0.0"
+  RECO_PORT = "8000"
+  CATALOG_FILTER_PATH = "/app/data/catalog-filter.json"
+  RECO_ALLOW_HEURISTIC_FALLBACK = "false"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  [[http_service.checks]]
+    grace_period = "25s"
+    interval = "30s"
+    method = "GET"
+    path = "/health/ready"
+    timeout = "5s"
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1

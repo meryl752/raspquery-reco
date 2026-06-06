@@ -1,0 +1,125 @@
+{
+  "env_ok": true,
+  "scenarios": [
+    {
+      "id": "shopify",
+      "analyze_ok": true,
+      "orchestrator_ok": true,
+      "subtask_count": 0,
+      "categories": [],
+      "retrieval_mode": "vector",
+      "agent_count": 4,
+      "total_cost": 38.0,
+      "budget_max": 50,
+      "processing_ms": 14827,
+      "error": null,
+      "checks": [
+        {
+          "name": "stack_name",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "4-6 agents (tolère 3)",
+          "ok": true,
+          "detail": "4 agents"
+        },
+        {
+          "name": "budget respecté",
+          "ok": true,
+          "detail": "38.0€ ≤ 50€"
+        },
+        {
+          "name": "retrieval vector préféré",
+          "ok": true,
+          "detail": "mode=vector"
+        },
+        {
+          "name": "pas doublon email évident",
+          "ok": true,
+          "detail": "0 outils email-like"
+        }
+      ]
+    },
+    {
+      "id": "saas_b2b",
+      "analyze_ok": true,
+      "orchestrator_ok": true,
+      "subtask_count": 0,
+      "categories": [],
+      "retrieval_mode": "vector",
+      "agent_count": 4,
+      "total_cost": 112.0,
+      "budget_max": 200,
+      "processing_ms": 15214,
+      "error": null,
+      "checks": [
+        {
+          "name": "stack_name",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "4-6 agents (tolère 3)",
+          "ok": true,
+          "detail": "4 agents"
+        },
+        {
+          "name": "budget respecté",
+          "ok": true,
+          "detail": "112.0€ ≤ 200€"
+        },
+        {
+          "name": "retrieval vector préféré",
+          "ok": true,
+          "detail": "mode=vector"
+        },
+        {
+          "name": "pas doublon email évident",
+          "ok": true,
+          "detail": "0 outils email-like"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "analyze_ok": true,
+      "orchestrator_ok": true,
+      "subtask_count": 0,
+      "categories": [],
+      "retrieval_mode": "vector",
+      "agent_count": 4,
+      "total_cost": 28.0,
+      "budget_max": 50,
+      "processing_ms": 17937,
+      "error": null,
+      "checks": [
+        {
+          "name": "stack_name",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "4-6 agents (tolère 3)",
+          "ok": true,
+          "detail": "4 agents"
+        },
+        {
+          "name": "budget respecté",
+          "ok": true,
+          "detail": "28.0€ ≤ 50€"
+        },
+        {
+          "name": "retrieval vector préféré",
+          "ok": true,
+          "detail": "mode=vector"
+        },
+        {
+          "name": "pas doublon email évident",
+          "ok": true,
+          "detail": "0 outils email-like"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "shopify": {
+    "objective": "Je veux lancer une boutique Shopify et automatiser mon service client avec un chatbot",
+    "sector": "ecommerce",
+    "team_size": "solo",
+    "budget": "low",
+    "tech_level": "beginner",
+    "timeline": "weeks",
+    "current_tools": [],
+    "locale": "fr",
+    "preferred_model": "qwen-235b"
+  },
+  "saas_b2b": {
+    "objective": "Je veux créer du contenu LinkedIn et automatiser ma prospection B2B",
+    "sector": "b2b",
+    "team_size": "solo",
+    "budget": "medium",
+    "tech_level": "intermediate",
+    "timeline": "weeks",
+    "current_tools": [],
+    "locale": "fr",
+    "preferred_model": "qwen-235b"
+  },
+  "support": {
+    "objective": "Automatiser ma boutique Shopify: SEO, emails clients et support",
+    "sector": "ecommerce",
+    "team_size": "solo",
+    "budget": "low",
+    "tech_level": "beginner",
+    "timeline": "weeks",
+    "current_tools": [],
+    "locale": "fr",
+    "preferred_model": "qwen-235b"
+  }
+}

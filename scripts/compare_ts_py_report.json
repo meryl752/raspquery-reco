@@ -1,0 +1,376 @@
+{
+  "scenarios": {
+    "shopify": {
+      "python": {
+        "engine": "python",
+        "scenario": "shopify",
+        "objective": "Je veux lancer une boutique Shopify et automatiser mon service client avec un chatbot",
+        "budget": "low",
+        "stack_name": "Boutique IA Express",
+        "total_cost": 28.0,
+        "roi_estimate": 65.0,
+        "agent_count": 5,
+        "agent_names": [
+          "Shopify",
+          "Webbotify",
+          "Make.com",
+          "Shopify Sidekick",
+          "ProductBot"
+        ],
+        "agents": [
+          {
+            "name": "Shopify",
+            "category": "automation",
+            "price_from": 0.0,
+            "role": "Crée ta boutique en ligne rapidement avec un outil simple et complet."
+          },
+          {
+            "name": "Webbotify",
+            "category": "automation",
+            "price_from": 19.0,
+            "role": "Gère automatiquement tes clients grâce à un chatbot intelligent intégré à Shopify."
+          },
+          {
+            "name": "Make.com",
+            "category": "automation",
+            "price_from": 9.0,
+            "role": "Connecte ton nom de domaine à Shopify sans écrire une ligne de code."
+          },
+          {
+            "name": "Shopify Sidekick",
+            "category": "automation",
+            "price_from": 0.0,
+            "role": "Configure et améliore ta boutique par commandes vocales ou textuelles simples."
+          },
+          {
+            "name": "ProductBot",
+            "category": "automation",
+            "price_from": 0.0,
+            "role": "Valide le bon fonctionnement du chatbot et du parcours client avant lancement."
+          }
+        ],
+        "subtask_count": 9,
+        "retrieval_mode": "vector",
+        "processing_ms": 21428,
+        "warnings_count": 3
+      },
+      "typescript": {
+        "engine": "typescript",
+        "scenario": "shopify",
+        "objective": "Je veux lancer une boutique Shopify et automatiser mon service client avec un chatbot",
+        "budget": "low",
+        "stack_name": "Lancement e-commerce automatisé",
+        "total_cost": 58,
+        "roi_estimate": 76,
+        "agent_count": 4,
+        "agent_names": [
+          "Drop Magic",
+          "Shopify Sidekick",
+          "Tidio AI",
+          "Shopify"
+        ],
+        "agents": [
+          {
+            "name": "Drop Magic",
+            "category": "automation",
+            "price_from": 29,
+            "role": "Crée ta boutique Shopify complète avec produits et design en quelques minutes"
+          },
+          {
+            "name": "Shopify Sidekick",
+            "category": "automation",
+            "price_from": 0,
+            "role": "Configure ta boutique et rédige les pages légales par commandes simples"
+          },
+          {
+            "name": "Tidio AI",
+            "category": "customer_service",
+            "price_from": 29,
+            "role": "Gère les questions clients 24/7 et récupère les paniers abandonnés via chat"
+          },
+          {
+            "name": "Shopify",
+            "category": "automation",
+            "price_from": 0,
+            "role": "Héberge ta boutique et ajoute des produits facilement sans compétences web"
+          }
+        ],
+        "subtask_count": 13,
+        "retrieval_mode": "vector",
+        "processing_ms": 6753,
+        "warnings_count": 10
+      },
+      "diff": {
+        "ok": true,
+        "agents_jaccard": 0.29,
+        "agents_overlap": [
+          "Shopify",
+          "Shopify Sidekick"
+        ],
+        "only_python": [
+          "Make.com",
+          "ProductBot",
+          "Webbotify"
+        ],
+        "only_typescript": [
+          "Drop Magic",
+          "Tidio AI"
+        ],
+        "cost_python": 28.0,
+        "cost_typescript": 58,
+        "cost_delta_py_minus_ts": -30.0,
+        "retrieval_python": "vector",
+        "retrieval_typescript": "vector",
+        "subtasks_python": 9,
+        "subtasks_typescript": 13,
+        "stack_name_python": "Boutique IA Express",
+        "stack_name_typescript": "Lancement e-commerce automatisé",
+        "processing_ms_python": 21428,
+        "processing_ms_typescript": 6753
+      }
+    },
+    "saas_b2b": {
+      "python": {
+        "engine": "python",
+        "scenario": "saas_b2b",
+        "objective": "Je veux créer du contenu LinkedIn et automatiser ma prospection B2B",
+        "budget": "medium",
+        "stack_name": "Prospexion IA B2B",
+        "total_cost": 120.0,
+        "roi_estimate": 64.0,
+        "agent_count": 4,
+        "agent_names": [
+          "Taplio",
+          "Lemlist",
+          "Canva",
+          "ActiveCampaign AI"
+        ],
+        "agents": [
+          {
+            "name": "Taplio",
+            "category": "automation",
+            "price_from": 49.0,
+            "role": "Créer et planifier du contenu LinkedIn aligné sur les personas pour générer des leads entrants."
+          },
+          {
+            "name": "Lemlist",
+            "category": "prospecting",
+            "price_from": 59.0,
+            "role": "Automatiser des campagnes de prospection froide hautement personnalisées pour toucher les décideurs."
+          },
+          {
+            "name": "Canva",
+            "category": "automation",
+            "price_from": 12.0,
+            "role": "Produire des visuels percutants pour renforcer l'impact des publications LinkedIn."
+          },
+          {
+            "name": "ActiveCampaign AI",
+            "category": "prospecting",
+            "price_from": 0.0,
+            "role": "Automatiser la publication croisée des contenus entre Canva, Taplio et LinkedIn."
+          }
+        ],
+        "subtask_count": 10,
+        "retrieval_mode": "vector",
+        "processing_ms": 24489,
+        "warnings_count": 3
+      },
+      "typescript": {
+        "engine": "typescript",
+        "scenario": "saas_b2b",
+        "objective": "Je veux créer du contenu LinkedIn et automatiser ma prospection B2B",
+        "budget": "medium",
+        "stack_name": "Prospection B2B Automatisée",
+        "total_cost": 177,
+        "roi_estimate": 77,
+        "agent_count": 4,
+        "agent_names": [
+          "Taplio",
+          "LinkedIn Sales Navigator",
+          "Hypotenuse AI",
+          "Later"
+        ],
+        "agents": [
+          {
+            "name": "Taplio",
+            "category": "automation",
+            "price_from": 49,
+            "role": "Créer et programmer du contenu LinkedIn engageant pour attirer des leads B2B qualifiés"
+          },
+          {
+            "name": "LinkedIn Sales Navigator",
+            "category": "prospecting",
+            "price_from": 99,
+            "role": "Pour votre objectif, LinkedIn Sales Navigator couvre : Définir les personas clients cibles (industrie, taille d'entrepri"
+          },
+          {
+            "name": "Hypotenuse AI",
+            "category": "copywriting",
+            "price_from": 29,
+            "role": "Pour votre objectif, Hypotenuse AI couvre : Mettre en place un système de prospection automatisé avec PhantomBuster +…"
+          },
+          {
+            "name": "Later",
+            "category": "automation",
+            "price_from": 0,
+            "role": "Programmer du contenu complémentaire sur d'autres réseaux sans détourner du focus LinkedIn"
+          }
+        ],
+        "subtask_count": 12,
+        "retrieval_mode": "vector",
+        "processing_ms": 7166,
+        "warnings_count": 2
+      },
+      "diff": {
+        "ok": true,
+        "agents_jaccard": 0.14,
+        "agents_overlap": [
+          "Taplio"
+        ],
+        "only_python": [
+          "ActiveCampaign AI",
+          "Canva",
+          "Lemlist"
+        ],
+        "only_typescript": [
+          "Hypotenuse AI",
+          "Later",
+          "LinkedIn Sales Navigator"
+        ],
+        "cost_python": 120.0,
+        "cost_typescript": 177,
+        "cost_delta_py_minus_ts": -57.0,
+        "retrieval_python": "vector",
+        "retrieval_typescript": "vector",
+        "subtasks_python": 10,
+        "subtasks_typescript": 12,
+        "stack_name_python": "Prospexion IA B2B",
+        "stack_name_typescript": "Prospection B2B Automatisée",
+        "processing_ms_python": 24489,
+        "processing_ms_typescript": 7166
+      }
+    },
+    "support": {
+      "python": {
+        "engine": "python",
+        "scenario": "support",
+        "objective": "Automatiser ma boutique Shopify: SEO, emails clients et support",
+        "budget": "low",
+        "stack_name": "Automatisation Shopify Express",
+        "total_cost": 29.0,
+        "roi_estimate": 72.0,
+        "agent_count": 4,
+        "agent_names": [
+          "Shopify",
+          "Mailchimp",
+          "Tidio AI",
+          "PageFly"
+        ],
+        "agents": [
+          {
+            "name": "Shopify",
+            "category": "automation",
+            "price_from": 0.0,
+            "role": "Pour votre objectif, Shopify couvre : 1. Analyser les mots‑clés pertinents pour les produits et le blog Shopify"
+          },
+          {
+            "name": "Mailchimp",
+            "category": "automation",
+            "price_from": 0.0,
+            "role": "Automatiser l'envoi d'un email de bienvenue personnalisé aux nouveaux clients."
+          },
+          {
+            "name": "Tidio AI",
+            "category": "customer_service",
+            "price_from": 29.0,
+            "role": "Répondre automatiquement aux questions fréquentes des clients jour et nuit."
+          },
+          {
+            "name": "PageFly",
+            "category": "automation",
+            "price_from": 0.0,
+            "role": "Créer des pages produits optimisées sans écrire de code."
+          }
+        ],
+        "subtask_count": 10,
+        "retrieval_mode": "vector",
+        "processing_ms": 11492,
+        "warnings_count": 3
+      },
+      "typescript": {
+        "engine": "typescript",
+        "scenario": "support",
+        "objective": "Automatiser ma boutique Shopify: SEO, emails clients et support",
+        "budget": "low",
+        "stack_name": "Automatisation Shopify Tout-en-Un",
+        "total_cost": 29,
+        "roi_estimate": 73,
+        "agent_count": 4,
+        "agent_names": [
+          "Shopify",
+          "Shopify Sidekick",
+          "Mailchimp",
+          "Tidio AI"
+        ],
+        "agents": [
+          {
+            "name": "Shopify",
+            "category": "automation",
+            "price_from": 0,
+            "role": "Optimise le référencement des fiches produits via un plugin simple et gratuit"
+          },
+          {
+            "name": "Shopify Sidekick",
+            "category": "automation",
+            "price_from": 0,
+            "role": "Crée automatiquement des descriptions de produits optimisées pour le SEO"
+          },
+          {
+            "name": "Mailchimp",
+            "category": "automation",
+            "price_from": 0,
+            "role": "Automatise l’envoi d’emails de remerciement et de demande d’avis clients"
+          },
+          {
+            "name": "Tidio AI",
+            "category": "customer_service",
+            "price_from": 29,
+            "role": "Répond 24/7 aux questions fréquentes des visiteurs via un chat intelligent"
+          }
+        ],
+        "subtask_count": 8,
+        "retrieval_mode": "vector",
+        "processing_ms": 5724,
+        "warnings_count": 2
+      },
+      "diff": {
+        "ok": true,
+        "agents_jaccard": 0.6,
+        "agents_overlap": [
+          "Mailchimp",
+          "Shopify",
+          "Tidio AI"
+        ],
+        "only_python": [
+          "PageFly"
+        ],
+        "only_typescript": [
+          "Shopify Sidekick"
+        ],
+        "cost_python": 29.0,
+        "cost_typescript": 29,
+        "cost_delta_py_minus_ts": 0.0,
+        "retrieval_python": "vector",
+        "retrieval_typescript": "vector",
+        "subtasks_python": 10,
+        "subtasks_typescript": 8,
+        "stack_name_python": "Automatisation Shopify Express",
+        "stack_name_typescript": "Automatisation Shopify Tout-en-Un",
+        "processing_ms_python": 11492,
+        "processing_ms_typescript": 5724
+      }
+    }
+  },
+  "notes": []
+}
