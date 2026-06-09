@@ -12,7 +12,7 @@ from app.core.models import VectorAgent
 logger = logging.getLogger(__name__)
 
 SMART_SEARCH_AGENTS_V2 = "smart_search_agents_v2"
-SMART_SEARCH_V2_MATCH_COUNT = 40
+SMART_SEARCH_V2_MATCH_COUNT = 50
 
 
 class SupabaseNotConfiguredError(RuntimeError):
@@ -54,6 +54,7 @@ def _row_to_vector_agent(row: dict) -> VectorAgent:
         website_url=row.get("website_url") or row.get("url"),
         setup_difficulty=row.get("setup_difficulty"),
         time_to_value=row.get("time_to_value"),
+        catalog_status=row.get("catalog_status") or "active",
         similarity=float(row.get("similarity") or 0),
     )
 

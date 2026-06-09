@@ -18,6 +18,8 @@ from app.infra.supabase import get_agents_by_categories, vector_search_agents
 from app.pipeline.dry_run import dry_run_result
 from app.pipeline.matcher import match_agents
 from app.pipeline.query_analyzer import analyze_query
+from app.pipeline.retrieval_pool import MIN_POOL_AFTER_ICP, merge_category_agents
+from app.pipeline.retrieval_text import build_retrieval_embedding_text
 from app.pipeline.stack_builder import build_stack
 
 logger = logging.getLogger(__name__)
@@ -31,21 +33,6 @@ def _adapt_fallback_agents(agents: list[VectorAgent]) -> list[VectorAgent]:
         a.model_copy(update={"similarity": 1.0}) if hasattr(a, "model_copy") else a
         for a in agents
     ]
-
-
-def _embedding_text(ctx: UserContext, query) -> str:
-    return ". ".join(
-        filter(
-            None,
-            [
-                ctx.objective,
-                f"Secteur: {ctx.sector}",
-                query.sector_context or "",
-                f"Catégories: {', '.join(query.required_category_values)}",
-                *query.subtasks[:5],
-            ],
-        )
-    )
 
 
 async def run_orchestrator(
@@ -72,14 +59,22 @@ async def run_orchestrator(
 
         try:
             logger.info("[orchestrator] étapes 2-3 — embedding + RPC")
-            emb_text = _embedding_text(ctx, analyzed)
+            emb_text = build_retrieval_embedding_text(ctx, analyzed)
             vector, embedding_latency_ms = await generate_embedding(settings, emb_text)
             raw = await vector_search_agents(settings, vector, budget_max, category=None)
             if not raw:
                 raise RuntimeError("RPC vectoriel vide")
-            vector_agents = filter_catalog_agents(raw)
-            if not vector_agents:
+            filtered = filter_catalog_agents(raw)
+            if not filtered:
                 raise RuntimeError("Tous les agents exclus par catalog-filter")
+            if len(filtered) < MIN_POOL_AFTER_ICP:
+                db_agents = await get_agents_by_categories(
+                    settings, analyzed.required_category_values
+                )
+                supplement = filter_catalog_agents(_adapt_fallback_agents(db_agents))
+                vector_agents = merge_category_agents(filtered, supplement)
+            else:
+                vector_agents = filtered
             retrieval_mode = "vector"
             logger.info("[orchestrator] mode vectoriel — %d agents", len(vector_agents))
         except Exception as exc:

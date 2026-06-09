@@ -7,6 +7,7 @@ class Settings(BaseSettings):
         env_file=(".env", ".env.local"),
         env_file_encoding="utf-8",
         extra="ignore",
+        populate_by_name=True,
     )
 
     reco_host: str = "0.0.0.0"

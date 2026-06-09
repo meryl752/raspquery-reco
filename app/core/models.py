@@ -31,6 +31,7 @@ class VectorAgent(BaseModel):
     name: str
     category: str
     description: str
+    catalog_status: str | None = "active"
     price_from: float = 0
     score: float = 0
     roi_score: float = 0

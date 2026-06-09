@@ -62,6 +62,13 @@ def get_catalog_filter(settings: Settings | None = None) -> tuple[set[str], set[
         return set(), set(), []
 
 
+def _is_inactive_catalog(agent: object) -> bool:
+    status = getattr(agent, "catalog_status", None)
+    if status is None and isinstance(agent, dict):
+        status = agent.get("catalog_status")
+    return (status or "active") != "active"
+
+
 def _is_excluded(agent: object, excluded_ids: set[str], excluded_names: set[str], frags: list[str]) -> bool:
     aid = str(getattr(agent, "id", "")).strip().lower()
     name = str(getattr(agent, "name", "")).strip().lower()
@@ -73,11 +80,24 @@ def _is_excluded(agent: object, excluded_ids: set[str], excluded_names: set[str]
 def filter_catalog_agents(agents: list[T]) -> list[T]:
     if not agents:
         return agents
+
+    kept = [a for a in agents if not _is_inactive_catalog(a)]
+    status_removed = len(agents) - len(kept)
+    if status_removed:
+        logger.info(
+            "catalog-filter: %d agent(s) retiré(s) (catalog_status ≠ active)",
+            status_removed,
+        )
+
     excluded_ids, excluded_names, name_contains = get_catalog_filter()
     if not excluded_ids and not excluded_names and not name_contains:
-        return agents
+        return kept
 
-    kept = [a for a in agents if not _is_excluded(a, excluded_ids, excluded_names, name_contains)]
+    kept = [
+        a
+        for a in kept
+        if not _is_excluded(a, excluded_ids, excluded_names, name_contains)
+    ]
     removed = len(agents) - len(kept)
     if removed:
         logger.info(
